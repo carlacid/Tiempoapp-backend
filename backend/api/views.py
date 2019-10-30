@@ -14,5 +14,6 @@ class MyView(View):
 
     def get(self, request, *args, **kwargs):
         print(request.GET)
-        r=getapi('vigo')
+        city = request.GET['city']
+        r=getapi(city)
         return HttpResponse(r)
