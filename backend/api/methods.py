@@ -6,11 +6,13 @@ class Methods:
         self.data = data
 
     def checkCity(data):
+        # comprobar si existe la ciudad en la DB, sino existe se crea
         city, created = models.City.objects.get_or_create(name=data["city"]["name"])
         return city
 
     def main():
         checkCity(data)
+         # Comprobar si existe el dia en esa ciudad en la DB, sino existe lo crea
         for item in data["list"]:
             fecha = item["dt_txt"].split()
             checkDay(fecha, city)
